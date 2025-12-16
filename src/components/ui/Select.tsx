@@ -6,13 +6,13 @@ import { cn } from "@/lib/utils";
 const selectVariants = cva(
   [
     "w-full",
-    "bg-white",
-    "border border-gray-200",
+    "bg-white dark:bg-gray-800",
+    "border border-gray-200 dark:border-gray-700",
     "rounded-xl",
-    "text-gray-900",
+    "text-gray-900 dark:text-white",
     "transition-all duration-300",
     "focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand",
-    "disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-gray-50",
+    "disabled:cursor-not-allowed disabled:opacity-50 disabled:bg-gray-50 dark:disabled:bg-gray-900",
     "appearance-none",
     "cursor-pointer",
   ],
@@ -73,7 +73,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
         {label && (
           <label
             htmlFor={selectId}
-            className="block text-sm font-medium text-gray-700 mb-2"
+            className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
           >
             {label}
           </label>
@@ -122,7 +122,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
           </p>
         )}
         {helperText && !error && (
-          <p id={`${selectId}-helper`} className="mt-2 text-sm text-gray-500">
+          <p id={`${selectId}-helper`} className="mt-2 text-sm text-gray-500 dark:text-gray-400">
             {helperText}
           </p>
         )}

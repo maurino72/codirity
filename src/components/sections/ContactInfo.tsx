@@ -35,10 +35,10 @@ const contactMethods: ContactMethod[] = [
 export function ContactInfo() {
   return (
     <div className="lg:sticky lg:top-[120px]">
-      <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold tracking-tight text-gray-900 mb-4">
+      <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-bold tracking-tight text-gray-900 dark:text-white mb-4">
         Let&apos;s Build Something Great Together
       </h2>
-      <p className="text-lg text-gray-600 leading-relaxed mb-10">
+      <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-10">
         Ready to transform your business with AI-powered solutions? Get in touch
         and let&apos;s discuss how we can help you modernize your processes.
       </p>
@@ -58,10 +58,10 @@ export function ContactInfo() {
               {method.icon}
             </div>
             <div>
-              <h4 className="text-[0.95rem] font-semibold text-gray-900 mb-1">
+              <h4 className="text-[0.95rem] font-semibold text-gray-900 dark:text-white mb-1">
                 {method.title}
               </h4>
-              <p className="text-sm text-gray-600">{method.content}</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400">{method.content}</p>
             </div>
           </div>
         ))}

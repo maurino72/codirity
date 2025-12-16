@@ -17,7 +17,7 @@ export function ContactForm() {
     <div
       className={cn(
         "relative overflow-hidden",
-        "bg-white border border-[var(--border)] rounded-[28px]",
+        "bg-white dark:bg-gray-800 border border-[var(--border)] rounded-[28px]",
         "p-8 md:p-10 shadow-lg",
         "before:absolute before:top-0 before:left-0 before:right-0 before:h-1",
         "before:bg-gradient-to-r before:from-brand-dark before:via-brand before:to-brand-light"
@@ -25,10 +25,10 @@ export function ContactForm() {
     >
       {/* Header */}
       <div className="mb-8">
-        <h3 className="text-xl font-bold text-gray-900 mb-2">
+        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
           Send Us a Message
         </h3>
-        <p className="text-[0.95rem] text-gray-500">
+        <p className="text-[0.95rem] text-gray-500 dark:text-gray-400">
           Fill out the form below and we&apos;ll get back to you shortly.
         </p>
       </div>
@@ -79,7 +79,7 @@ export function ContactForm() {
         <div className="w-full">
           <label
             htmlFor="message"
-            className="block text-sm font-medium text-gray-700 mb-2"
+            className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
           >
             How Can We Help? *
           </label>
@@ -90,9 +90,9 @@ export function ContactForm() {
             required
             className={cn(
               "w-full min-h-[130px] resize-y",
-              "bg-white border border-gray-200 rounded-xl",
-              "px-4 py-3 text-sm text-gray-900",
-              "placeholder:text-gray-400",
+              "bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl",
+              "px-4 py-3 text-sm text-gray-900 dark:text-white",
+              "placeholder:text-gray-400 dark:placeholder:text-gray-500",
               "transition-all duration-300",
               "focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand"
             )}
@@ -108,7 +108,7 @@ export function ContactForm() {
         </div>
 
         {/* Privacy Note */}
-        <p className="flex items-center justify-center gap-2 mt-4 text-sm text-gray-500">
+        <p className="flex items-center justify-center gap-2 mt-4 text-sm text-gray-500 dark:text-gray-400">
           <Lock className="w-4 h-4 stroke-brand" />
           Your information is secure and will never be shared.
         </p>

@@ -61,14 +61,14 @@ const SectionHeader = forwardRef<HTMLDivElement, SectionHeaderProps>(
         )}
         <h2
           className={cn(
-            "text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900",
+            "text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 dark:text-white",
             gradientTitle && "gradient-text"
           )}
         >
           {title}
         </h2>
         {description && (
-          <p className="mt-4 text-lg text-gray-600 leading-relaxed">
+          <p className="mt-4 text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
             {description}
           </p>
         )}

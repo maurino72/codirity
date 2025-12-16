@@ -13,6 +13,7 @@ export function Hero() {
         "pt-32 pb-24 px-4 md:px-8 lg:px-16",
         "relative z-[1]",
         "bg-gradient-to-b from-white to-gray-50",
+        "dark:from-gray-900 dark:to-gray-800",
         "overflow-hidden"
       )}
     >
@@ -41,7 +42,7 @@ export function Hero() {
               className={cn(
                 "text-4xl md:text-5xl lg:text-6xl xl:text-[4.5rem]",
                 "font-extrabold leading-[1.08] tracking-[-2.5px]",
-                "text-gray-900 mb-6",
+                "text-gray-900 dark:text-white mb-6",
                 "opacity-0 animate-slide-up animation-delay-300"
               )}
             >
@@ -54,7 +55,7 @@ export function Hero() {
 
             <p
               className={cn(
-                "text-lg md:text-xl text-gray-600",
+                "text-lg md:text-xl text-gray-600 dark:text-gray-400",
                 "max-w-[520px] leading-relaxed mb-10",
                 "opacity-0 animate-slide-up animation-delay-400"
               )}
@@ -88,8 +89,8 @@ export function Hero() {
                 className={cn(
                   "inline-flex items-center justify-center gap-2",
                   "px-8 py-4 text-base font-semibold rounded-full",
-                  "bg-white text-gray-700 border border-gray-200",
-                  "hover:border-brand hover:text-brand hover:bg-brand-pale",
+                  "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700",
+                  "hover:border-brand hover:text-brand dark:hover:text-brand hover:bg-brand-pale",
                   "transition-all duration-300"
                 )}
               >

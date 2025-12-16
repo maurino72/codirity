@@ -27,7 +27,7 @@ function HeroCard({
   return (
     <div
       className={cn(
-        "absolute bg-white border border-[var(--border)] rounded-[20px] p-6",
+        "absolute bg-white dark:bg-gray-800 border border-[var(--border)] rounded-[20px] p-6",
         "shadow-lg transition-all duration-400",
         "hover:-translate-y-2 hover:shadow-xl hover:border-brand/30",
         className
@@ -45,16 +45,16 @@ function HeroCard({
           {icon}
         </div>
         <div>
-          <div className="text-sm font-semibold text-gray-900">{title}</div>
-          <div className="text-xs text-gray-500">{subtitle}</div>
+          <div className="text-sm font-semibold text-gray-900 dark:text-white">{title}</div>
+          <div className="text-xs text-gray-500 dark:text-gray-400">{subtitle}</div>
         </div>
       </div>
       <div className="font-mono text-4xl font-bold text-brand mb-1">
         {metric}
       </div>
-      <div className="text-sm text-gray-500">{metricLabel}</div>
+      <div className="text-sm text-gray-500 dark:text-gray-400">{metricLabel}</div>
       {showProgress && (
-        <div className="h-1.5 bg-gray-100 rounded-full mt-4 overflow-hidden">
+        <div className="h-1.5 bg-gray-100 dark:bg-gray-700 rounded-full mt-4 overflow-hidden">
           <div
             className={cn(
               "h-full rounded-full",

@@ -38,11 +38,11 @@ export function Section({
         padding === "hero" &&
           "min-h-screen py-24 md:py-32 lg:py-40 px-4 md:px-8 lg:px-16",
         // Background variants
-        variant === "default" && "bg-white",
-        variant === "gray" && "bg-gray-50",
+        variant === "default" && "bg-white dark:bg-gray-900",
+        variant === "gray" && "bg-gray-50 dark:bg-gray-800",
         variant === "gradient" && [
-          "bg-gradient-to-b",
-          "from-brand-pale/60 via-brand-glow to-brand-pale/60",
+          "bg-[linear-gradient(180deg,_rgba(50,_205,_50,_0.06)_0%,_rgba(89,_243,_89,_0.1)_50%,_rgba(50,_205,_50,_0.06)_100%)]",
+          "dark:bg-[linear-gradient(180deg,_rgba(50,_205,_50,_0.1)_0%,_rgba(89,_243,_89,_0.15)_50%,_rgba(50,_205,_50,_0.1)_100%)]",
         ],
         className
       )}

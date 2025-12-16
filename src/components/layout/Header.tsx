@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -44,7 +43,7 @@ export function Header() {
         "px-4 py-5 md:px-8 lg:px-16",
         isScrolled && [
           "py-4",
-          "bg-white/95 backdrop-blur-xl",
+          "bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl",
           "border-b border-[var(--border)]",
           "shadow-sm",
         ]
@@ -54,7 +53,7 @@ export function Header() {
         {/* Logo */}
         <Link
           href="/"
-          className="flex items-center gap-2 font-mono text-2xl font-bold text-gray-900 tracking-tight"
+          className="flex items-center gap-2 font-mono text-2xl font-bold text-gray-900 dark:text-white tracking-tight"
         >
           <span>Codirity</span>
           <span className="w-2.5 h-2.5 bg-brand rounded-full animate-pulse-dot" />
@@ -67,9 +66,9 @@ export function Header() {
               <Link
                 href={link.href}
                 className={cn(
-                  "relative text-gray-600 text-[0.95rem] font-medium",
+                  "relative text-gray-600 dark:text-gray-400 text-[0.95rem] font-medium",
                   "transition-colors duration-300",
-                  "hover:text-gray-900",
+                  "hover:text-gray-900 dark:hover:text-white",
                   "after:content-[''] after:absolute after:-bottom-1.5 after:left-0",
                   "after:w-0 after:h-0.5 after:bg-brand",
                   "after:transition-[width] after:duration-300",
@@ -106,9 +105,9 @@ export function Header() {
           aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
         >
           {isMobileMenuOpen ? (
-            <X className="w-6 h-6 text-gray-800" />
+            <X className="w-6 h-6 text-gray-800 dark:text-gray-200" />
           ) : (
-            <Menu className="w-6 h-6 text-gray-800" />
+            <Menu className="w-6 h-6 text-gray-800 dark:text-gray-200" />
           )}
         </button>
       </nav>
@@ -118,7 +117,7 @@ export function Header() {
         className={cn(
           "lg:hidden",
           "fixed inset-x-0 top-[72px]",
-          "bg-white border-b border-[var(--border)]",
+          "bg-white dark:bg-gray-900 border-b border-[var(--border)]",
           "shadow-lg",
           "transition-all duration-300 ease-[var(--transition-smooth)]",
           isMobileMenuOpen
@@ -135,9 +134,9 @@ export function Header() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={cn(
                     "block py-3 px-4 rounded-xl",
-                    "text-gray-700 text-lg font-medium",
+                    "text-gray-700 dark:text-gray-300 text-lg font-medium",
                     "transition-colors duration-200",
-                    "hover:bg-gray-50 hover:text-gray-900"
+                    "hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white"
                   )}
                 >
                   {link.label}
@@ -145,7 +144,7 @@ export function Header() {
               </li>
             ))}
           </ul>
-          <div className="mt-6 pt-6 border-t border-gray-100">
+          <div className="mt-6 pt-6 border-t border-gray-100 dark:border-gray-800">
             <Link
               href="#contact"
               onClick={() => setIsMobileMenuOpen(false)}

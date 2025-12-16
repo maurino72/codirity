@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit, Space_Mono } from "next/font/google";
 import { Header, Footer } from "@/components/layout";
+import { ThemeProvider } from "@/components/theme";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -27,21 +28,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${outfit.variable} ${spaceMono.variable} font-sans antialiased`}
       >
-        {/* Background Pattern */}
-        <div className="bg-pattern" />
+        <ThemeProvider>
+          {/* Background Pattern */}
+          <div className="bg-pattern" />
 
-        {/* Header */}
-        <Header />
+          {/* Header */}
+          <Header />
 
-        {/* Main Content */}
-        <main>{children}</main>
+          {/* Main Content */}
+          <main>{children}</main>
 
-        {/* Footer */}
-        <Footer />
+          {/* Footer */}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
