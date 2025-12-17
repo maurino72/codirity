@@ -13,10 +13,10 @@ const contactMethods: ContactMethod[] = [
     title: "Email Us",
     content: (
       <a
-        href="mailto:hello@codirity.com"
+        href="mailto:support@codirity.com"
         className="text-brand font-semibold hover:text-brand-dark transition-colors"
       >
-        hello@codirity.com
+        support@codirity.com
       </a>
     ),
   },

@@ -1,6 +1,8 @@
 "use client";
 
-import { Send, Lock } from "lucide-react";
+import { useState, FormEvent } from "react";
+import { Send, Lock, Loader2 } from "lucide-react";
+import { toast } from "sonner";
 import { Input, Select, Button } from "@/components/ui";
 import { cn } from "@/lib/utils";
 
@@ -12,7 +14,70 @@ const serviceOptions = [
   { value: "other", label: "Other / Not Sure" },
 ];
 
+interface FormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  company: string;
+  service: string;
+  message: string;
+}
+
+const initialFormData: FormData = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  company: "",
+  service: "",
+  message: "",
+};
+
 export function ContactForm() {
+  const [formData, setFormData] = useState<FormData>(initialFormData);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+
+    // Client-side validation
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.message) {
+      toast.error("Please fill in all required fields");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send message");
+      }
+
+      toast.success("Message sent successfully! We'll get back to you soon.");
+      setFormData(initialFormData);
+    } catch (error) {
+      toast.error(
+        error instanceof Error ? error.message : "Failed to send message. Please try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div
       className={cn(
@@ -34,20 +99,26 @@ export function ContactForm() {
       </div>
 
       {/* Form */}
-      <form className="flex flex-col gap-5">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-5">
         {/* Name Row */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <Input
             label="First Name *"
             name="firstName"
             placeholder="John"
+            value={formData.firstName}
+            onChange={handleChange}
             required
+            disabled={isSubmitting}
           />
           <Input
             label="Last Name *"
             name="lastName"
             placeholder="Doe"
+            value={formData.lastName}
+            onChange={handleChange}
             required
+            disabled={isSubmitting}
           />
         </div>
 
@@ -57,7 +128,10 @@ export function ContactForm() {
           name="email"
           type="email"
           placeholder="john@company.com"
+          value={formData.email}
+          onChange={handleChange}
           required
+          disabled={isSubmitting}
         />
 
         {/* Company & Service Row */}
@@ -66,12 +140,18 @@ export function ContactForm() {
             label="Company Name"
             name="company"
             placeholder="Your Company"
+            value={formData.company}
+            onChange={handleChange}
+            disabled={isSubmitting}
           />
           <Select
             label="Service Interested In"
             name="service"
             placeholder="Select a service"
             options={serviceOptions}
+            value={formData.service}
+            onChange={handleChange}
+            disabled={isSubmitting}
           />
         </div>
 
@@ -87,23 +167,36 @@ export function ContactForm() {
             id="message"
             name="message"
             placeholder="Tell us about your project, challenges, or goals..."
+            value={formData.message}
+            onChange={handleChange}
             required
+            disabled={isSubmitting}
             className={cn(
               "w-full min-h-[130px] resize-y",
               "bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl",
               "px-4 py-3 text-sm text-gray-900 dark:text-white",
               "placeholder:text-gray-400 dark:placeholder:text-gray-500",
               "transition-all duration-300",
-              "focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand"
+              "focus:outline-none focus:ring-2 focus:ring-brand/20 focus:border-brand",
+              "disabled:opacity-60 disabled:cursor-not-allowed"
             )}
           />
         </div>
 
         {/* Submit */}
         <div className="mt-2">
-          <Button type="submit" fullWidth size="lg">
-            Send Message
-            <Send className="w-5 h-5" />
+          <Button type="submit" fullWidth size="lg" disabled={isSubmitting}>
+            {isSubmitting ? (
+              <>
+                Sending...
+                <Loader2 className="w-5 h-5 animate-spin" />
+              </>
+            ) : (
+              <>
+                Send Message
+                <Send className="w-5 h-5" />
+              </>
+            )}
           </Button>
         </div>
 
