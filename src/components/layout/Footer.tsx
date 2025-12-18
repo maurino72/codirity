@@ -178,7 +178,7 @@ export function Footer() {
             </p>
             <div className="flex gap-6">
               <Link
-                href="#"
+                href="/privacy"
                 className="text-white/40 text-sm hover:text-brand transition-colors duration-300"
               >
                 Privacy Policy
