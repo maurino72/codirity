@@ -73,28 +73,28 @@ export function HeroCards() {
     <div className="relative h-[480px] opacity-0 animate-fade-in animation-delay-600">
       <HeroCard
         icon={<Sun className="w-[22px] h-[22px] stroke-brand" />}
-        title="Process Automation"
-        subtitle="Active workflow"
-        metric="40%"
-        metricLabel="Cost reduction achieved"
+        title="Cost Reduction"
+        subtitle="Smart automation"
+        metric="Save"
+        metricLabel="Automate repetitive tasks"
         showProgress
         className="top-[5%] left-0 w-[280px] animate-float-card"
       />
       <HeroCard
         icon={<CheckCircle className="w-[22px] h-[22px] stroke-brand" />}
-        title="Tasks Completed"
-        subtitle="This month"
-        metric="2,847"
-        metricLabel="Automated actions"
+        title="24/7 Automation"
+        subtitle="Always running"
+        metric="Non-Stop"
+        metricLabel="Systems that work while you sleep"
         className="top-[40%] right-0 w-[240px] animate-float-card"
         animationDelay="1s"
       />
       <HeroCard
         icon={<BarChart3 className="w-[22px] h-[22px] stroke-brand" />}
-        title="Efficiency Gain"
-        subtitle="vs. manual process"
-        metric="3x"
-        metricLabel="Faster deployment"
+        title="Faster Delivery"
+        subtitle="Efficient process"
+        metric="Quick"
+        metricLabel="From idea to production"
         className="bottom-[5%] left-[10%] w-[260px] animate-float-card"
         animationDelay="0.5s"
       />

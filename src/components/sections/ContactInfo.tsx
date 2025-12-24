@@ -1,5 +1,8 @@
 import { Mail, MapPin, Clock, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { CalPopupButton } from "@/components/ui";
+
+const CAL_LINK = "support-codirity-lz8rjc/30min";
 
 interface ContactMethod {
   icon: React.ReactNode;
@@ -86,8 +89,8 @@ export function ContactInfo() {
           Book a free 30-minute consultation call to discuss your project
           requirements and how we can help.
         </p>
-        <a
-          href="#"
+        <CalPopupButton
+          calLink={CAL_LINK}
           className={cn(
             "inline-flex items-center gap-3",
             "px-6 py-3 rounded-full",
@@ -97,9 +100,9 @@ export function ContactInfo() {
             "relative z-[1]"
           )}
         >
-          Schedule a Call
+          Book a Call
           <ArrowRight className="w-[18px] h-[18px]" />
-        </a>
+        </CalPopupButton>
       </div>
     </div>
   );

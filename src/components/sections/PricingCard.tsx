@@ -1,5 +1,6 @@
 import { Check, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { CalPopupButton } from "@/components/ui";
 
 export interface PricingCardProps {
   name: string;
@@ -9,6 +10,7 @@ export interface PricingCardProps {
   features: string[];
   ctaText: string;
   ctaHref: string;
+  calLink?: string;
   featured?: boolean;
   className?: string;
 }
@@ -21,9 +23,25 @@ export function PricingCard({
   features,
   ctaText,
   ctaHref,
+  calLink,
   featured,
   className,
 }: PricingCardProps) {
+  const buttonStyles = cn(
+    "inline-flex items-center justify-center gap-2 w-full",
+    "px-8 py-4 text-base font-semibold rounded-full",
+    "transition-all duration-300",
+    features.length === 0 && "mt-2",
+    featured
+      ? [
+          "bg-white text-brand-dark",
+          "hover:bg-gray-100 hover:-translate-y-0.5 hover:shadow-lg",
+        ]
+      : [
+          "bg-brand text-white",
+          "hover:bg-brand-dark hover:-translate-y-0.5 hover:shadow-brand",
+        ]
+  );
   return (
     <div
       className={cn(
@@ -87,55 +105,48 @@ export function PricingCard({
       </p>
 
       {/* Features */}
-      <ul className="flex flex-col gap-4 mb-10">
-        {features.map((feature, index) => (
-          <li key={index} className="flex items-start gap-3">
-            <div
-              className={cn(
-                "flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5",
-                featured ? "bg-white/20" : "bg-brand-pale"
-              )}
-            >
-              <Check
+      {features.length > 0 && (
+        <ul className="flex flex-col gap-4 mb-10">
+          {features.map((feature, index) => (
+            <li key={index} className="flex items-start gap-3">
+              <div
                 className={cn(
-                  "w-4 h-4",
-                  featured ? "text-white" : "text-brand"
+                  "flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5",
+                  featured ? "bg-white/20" : "bg-brand-pale"
                 )}
-              />
-            </div>
-            <span
-              className={cn(
-                "text-[0.95rem]",
-                featured ? "text-white/90" : "text-gray-700 dark:text-gray-300"
-              )}
-            >
-              {feature}
-            </span>
-          </li>
-        ))}
-      </ul>
+              >
+                <Check
+                  className={cn(
+                    "w-4 h-4",
+                    featured ? "text-white" : "text-brand"
+                  )}
+                />
+              </div>
+              <span
+                className={cn(
+                  "text-[0.95rem]",
+                  featured ? "text-white/90" : "text-gray-700 dark:text-gray-300"
+                )}
+              >
+                {feature}
+              </span>
+            </li>
+          ))}
+        </ul>
+      )}
 
       {/* CTA Button */}
-      <a
-        href={ctaHref}
-        className={cn(
-          "inline-flex items-center justify-center gap-2 w-full",
-          "px-8 py-4 text-base font-semibold rounded-full",
-          "transition-all duration-300",
-          featured
-            ? [
-                "bg-white text-brand-dark",
-                "hover:bg-gray-100 hover:-translate-y-0.5 hover:shadow-lg",
-              ]
-            : [
-                "bg-brand text-white",
-                "hover:bg-brand-dark hover:-translate-y-0.5 hover:shadow-brand",
-              ]
-        )}
-      >
-        {ctaText}
-        <ArrowRight className="w-5 h-5" />
-      </a>
+      {calLink ? (
+        <CalPopupButton calLink={calLink} className={buttonStyles}>
+          {ctaText}
+          <ArrowRight className="w-5 h-5" />
+        </CalPopupButton>
+      ) : (
+        <a href={ctaHref} className={buttonStyles}>
+          {ctaText}
+          <ArrowRight className="w-5 h-5" />
+        </a>
+      )}
     </div>
   );
 }

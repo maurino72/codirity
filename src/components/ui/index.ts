@@ -25,3 +25,5 @@ export type { SelectProps, SelectOption } from "./Select";
 
 export { SectionHeader, sectionHeaderVariants } from "./SectionHeader";
 export type { SectionHeaderProps } from "./SectionHeader";
+
+export { CalPopupButton } from "./CalPopupButton";

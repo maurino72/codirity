@@ -8,21 +8,16 @@ const services = [
     icon: <Monitor className="w-7 h-7" strokeWidth={2} />,
     title: "Intelligent Process Automation",
     description:
-      "Eliminate repetitive tasks with AI-powered workflows that learn, adapt, and scale with your business. From document processing to customer service, we automate the mundane so your team can focus on what matters.",
+      "Stop wasting hours on repetitive tasks. We build AI-powered workflows that handle document processing, data entry, customer responses, and more—so your team can focus on work that actually moves the needle.",
     linkText: "Discuss your automation needs",
     linkHref: "#contact",
     featured: true,
-    stats: [
-      { value: "40%", label: "Cost Savings" },
-      { value: "20h", label: "Saved Weekly" },
-      { value: "99%", label: "Accuracy" },
-    ],
   },
   {
     icon: <Code2 className="w-7 h-7" strokeWidth={2} />,
     title: "Custom System Development",
     description:
-      "Tailored software solutions built for your unique challenges. We architect and develop systems that integrate seamlessly with your existing infrastructure.",
+      "Off-the-shelf software doesn't fit every business. We build tailored systems that solve your specific problems and integrate seamlessly with what you already use.",
     linkText: "Start your project",
     linkHref: "#contact",
   },
@@ -30,7 +25,7 @@ const services = [
     icon: <Target className="w-7 h-7" strokeWidth={2} />,
     title: "AI Integration",
     description:
-      "Embed machine learning capabilities into your existing tools. Predictive analytics, natural language processing, and intelligent decision-making.",
+      "Make your existing tools smarter. We embed AI capabilities like predictive analytics, natural language processing, and intelligent automation into your current stack.",
     linkText: "Explore AI solutions",
     linkHref: "#contact",
   },
@@ -38,7 +33,7 @@ const services = [
     icon: <Box className="w-7 h-7" strokeWidth={2} />,
     title: "Legacy Modernization",
     description:
-      "Upgrade outdated systems without disruption. We migrate, refactor, and enhance your technology stack while preserving critical data.",
+      "Outdated systems slow you down. We migrate and upgrade your technology without disrupting operations—preserving your data while unlocking modern capabilities.",
     linkText: "Modernize now",
     linkHref: "#contact",
   },
@@ -65,7 +60,6 @@ export function Services() {
               linkText={service.linkText}
               linkHref={service.linkHref}
               featured={service.featured}
-              stats={service.stats}
               className="reveal"
             />
           ))}

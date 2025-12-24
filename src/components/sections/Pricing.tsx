@@ -2,36 +2,19 @@ import { Section, Container } from "@/components/layout";
 import { SectionHeader } from "@/components/ui";
 import { PricingCard } from "./PricingCard";
 
+const CAL_LINK = "support-codirity-lz8rjc/30min";
+
 const plans = [
   {
-    name: "Monthly Club",
-    price: "$2,999",
-    priceSubtext: "/month",
+    name: "Let's Talk",
+    price: "Let's Talk",
     description:
-      "Perfect for companies that need ongoing development support with predictable costs and flexible scope.",
-    features: [
-      "One request at a time",
-      "Avg. 2 working days delivery",
-      "Unlimited tasks",
-      "Pause or cancel anytime",
-    ],
-    ctaText: "Get Started",
+      "We'll build a project tailored to your specific needs. Tell us about your vision and let's create something great together.",
+    features: [],
+    ctaText: "Book a Call",
     ctaHref: "#contact",
+    calLink: CAL_LINK,
     featured: true,
-  },
-  {
-    name: "Custom",
-    price: "Custom",
-    description:
-      "For larger projects or specific requirements. Let's discuss your needs and build a tailored solution.",
-    features: [
-      "Dedicated project scope",
-      "Custom timeline & milestones",
-      "Full project ownership",
-      "Ongoing support options",
-    ],
-    ctaText: "Contact Us",
-    ctaHref: "#contact",
   },
 ];
 
@@ -42,21 +25,21 @@ export function Pricing() {
         <SectionHeader
           label="Pricing"
           title="Simple, Transparent Pricing"
-          description="Choose the plan that works best for your business. No hidden fees, no surprises."
+          description="Ready to build something great? Let's discuss your project."
           className="mb-16"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="max-w-lg mx-auto">
           {plans.map((plan, index) => (
             <PricingCard
               key={index}
               name={plan.name}
               price={plan.price}
-              priceSubtext={plan.priceSubtext}
               description={plan.description}
               features={plan.features}
               ctaText={plan.ctaText}
               ctaHref={plan.ctaHref}
+              calLink={plan.calLink}
               featured={plan.featured}
               className="reveal"
             />

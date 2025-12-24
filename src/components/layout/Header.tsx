@@ -94,7 +94,7 @@ export function Header() {
             "hover:shadow-brand"
           )}
         >
-          Get Started
+          Contact Us
           <ArrowRight className="w-4 h-4" />
         </Link>
 
@@ -157,7 +157,7 @@ export function Header() {
                 "hover:bg-brand-dark"
               )}
             >
-              Get Started
+              Contact Us
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>

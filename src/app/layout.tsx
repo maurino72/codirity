@@ -18,9 +18,9 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Codirity | AI-Powered Automation & System Development",
+  title: "Codirity | AI-Powered Automation & Custom System Development",
   description:
-    "Transform your business with intelligent automation. Codirity delivers AI-driven technology solutions that modernize processes and accelerate growth.",
+    "Modernize your business with AI-powered automation and custom systems. Built by engineers from Globant & Ualá. Book a free consultation today.",
 };
 
 export default function RootLayout({
